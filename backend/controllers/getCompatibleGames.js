@@ -1,7 +1,6 @@
 module.exports = async (req, res) => {
-    const id = req.query?.id;
+    const commonGames = req.body.commonGames;
+    const option = req.body.option;
 
-    if (!id) return res.status(400).json({ status: 400, errorMessage: "ID cannot be empty" });
-
-    return res.json({ status: "OK" });
+    return res.json({ commonGames, option });
 }

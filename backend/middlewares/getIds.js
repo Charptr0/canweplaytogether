@@ -7,6 +7,7 @@ const STEAM_VANITY_URL = "http://api.steampowered.com/ISteamUser/ResolveVanityUR
 
 module.exports = async (req, res, next) => {
     const steamCommunityUrls = req.query?.urls.split(" ") || [];
+    const option = req.query.option;
 
     if (!steamCommunityUrls) return res.status(400).json({ status: 400, errorMessage: "URL cannot be empty" });
 
@@ -55,5 +56,7 @@ module.exports = async (req, res, next) => {
     }
 
     req.body.ids = ids;
+
+    option ? req.body.option = option : req.body.option = "all";
     next();
 }

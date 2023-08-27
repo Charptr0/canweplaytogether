@@ -28,5 +28,5 @@ module.exports = async (req, res, next) => {
     }
 
     req.body.users = users;
-    return res.json(users);
+    next();
 }
