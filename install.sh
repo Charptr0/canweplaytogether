@@ -13,7 +13,7 @@ echo "-------------------------------------------------"
 
 sleep 1
 
-echo -e "STEAM_API_KEY=\n" > .env
+echo -e "NODE_ENV=development\nSTEAM_API_KEY=\nFRONTEND_HOST=\n" > .env
 
 cd ..
 echo "-------------------------------------------------"

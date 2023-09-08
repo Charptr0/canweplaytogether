@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 require("dotenv").config();
 
 const controllers = require("./controllers");
@@ -7,6 +8,10 @@ const middlewares = require("./middlewares");
 const PORT = process.env.PORT || 4000;
 
 const app = express();
+
+app.use(cors({
+    origin: [process.env.NODE_ENV === 'production' ? process.env.FRONTEND_HOST : "*"]
+}))
 app.use(express.json());
 
 app.get("/", (_, res) => res.send({ status: 200, message: "OK" }));
